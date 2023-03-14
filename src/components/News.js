@@ -57,15 +57,15 @@ updateNews()
         <h1 className="text-center" style={{ margin: "30px 0px" , marginTop:"90px "}}>Top { props.category} HeadLines</h1>
         {loading && <Spinner />}
         <InfiniteScroll
-          dataLength={articles.length}
+          dataLength={articles?.length}
           next={fetchMoreData}
-          hasMore={articles.length !== totalResults}
+          hasMore={articles?.length !== totalResults}
           loader={<Spinner/>}
         >
 
           <div className="container">
             <div className="row">
-              {articles.map((element) => {
+              {articles && articles?.map((element) => {
                 return <div className="col-md-4" key={element.url}>
                   <NewsItem title={element.title} description={element.description} imageUrl={element.urlToImage} url={element.url} author={element.author} publishedAt={element.publishedAt} source={element.source.name} /></div>
 
